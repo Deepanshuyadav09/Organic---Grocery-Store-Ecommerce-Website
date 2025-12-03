@@ -1,1 +1,2 @@
 # Organic---Grocery-Store-Ecommerce-Website
+A fully functional Ecommerce web application built with Django,designed for selling organic grocery products.<br> It includes product listing, cart, checkout system, Razorpay payment integration, authentication system and a clean UI for smooth user experience.
