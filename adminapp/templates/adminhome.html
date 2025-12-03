@@ -1,0 +1,500 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block header1 %}
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar">
+      <div class="offcanvas-header justify-content-between">
+        <h4 class="fw-normal text-uppercase fs-6">Menu</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+
+      <div class="offcanvas-body">
+    
+        <ul class="navbar-nav justify-content-end menu-list list-unstyled d-flex gap-md-3 mb-0"
+        style="margin-bottom: 18px;font-family:'Times New Roman', Times, serif; font-size: 18px;">
+          <li class="nav-item border-dashed active">
+            <a href="/adminhome/category/" class="nav-link d-flex align-items-center gap-3 text-dark p-2">
+              <span> Add Category</span>
+            </a>
+          </li>
+          <li class="nav-item border-dashed">
+            <a href="/adminhome/viewcategory/" class="nav-link d-flex align-items-center gap-3 text-dark p-2">
+              <span>View Category</span>
+            </a>
+          </li>
+          <li class="nav-item border-dashed">
+            <a href="Register_User/" class="nav-link d-flex align-items-center gap-3 text-dark p-2">
+              <span>Register User</span>
+            </a>
+          </li>
+          <li class="nav-item border-dashed">
+            <a href="Editproduct/" class="nav-link d-flex align-items-center gap-3 text-dark p-2">
+              <span>My Order</span>
+            </a>
+          </li>
+          <li class="nav-item border-dashed">
+            <a href="index.html" class="nav-link d-flex align-items-center gap-3 text-dark p-2">
+              <span>Save Address</span>
+            </a>
+          </li>
+        </ul>
+        </div>
+    </div>
+{% endblock %}
+{% block menu %}
+ <div class="col-sm-4 col-lg-2 text-center text-sm-start d-flex gap-3 justify-content-center justify-content-md-start">
+            <div class="d-flex align-items-center my-3 my-sm-0">
+              <a href="index.html">
+                <img src="{% static 'images/logo.svg'%}" alt="logo" class="img-fluid">
+              </a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+              aria-controls="offcanvasNavbar"><b>MENU</b><use xlink:href="#menu"></use>
+              <!-- <svg width="24" height="24" viewBox="0 0 24 24"><use xlink:href="#menu"></use></svg> -->
+            </button>
+          </div>
+          
+          <div class="col-sm-6 offset-sm-2 offset-md-0 col-lg-4">
+            <div class="search-bar row bg-light p-2 rounded-4">
+              <div class="col-md-4 d-none d-md-block">
+                <select class="form-select border-0 bg-transparent">
+                  <option>All Categories</option>
+                  <option>Groceries</option>
+                  <option>Drinks</option>
+                  <option>Chocolates</option>
+                </select>
+              </div>
+              <div class="col-11 col-md-7 ">
+                <form id="search-form" class="text-center" action="index.html" method="post">
+                  <input type="text" class="form-control border-0 bg-transparent" placeholder="Search for more than 20,000 products">
+                </form>
+              </div>
+              <div class="col-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7Z"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <ul class="navbar-nav list-unstyled d-flex flex-row gap-3 gap-lg-5 justify-content-center flex-wrap align-items-center mb-0 fw-bold text-uppercase text-dark">
+                <li class="nav-item active d-flex gap-lg-5">
+                  <a href="#" class="nav-link">Profile </a>
+                  <a href="#" class="nav-link">About Us</a>
+                <a href="/adminhome/logout1/" class="btn btn-outline-danger fw-bold text-uppercase fs-9 rounded-pill px-4 py-2">Logout</a>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="col-sm-8 col-lg-2 d-flex gap-5 align-items-center justify-content-center justify-content-sm-end">
+            <ul class="d-flex justify-content-end list-unstyled m-0">
+              <li>
+                <a href="#" class="p-2 mx-1">
+                  <svg width="24" height="24"><use xlink:href="#user"></use></svg>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="p-2 mx-1">
+                  <svg width="24" height="24"><use xlink:href="#wishlist"></use></svg>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="p-2 mx-1">
+                  <svg width="24" height="24"><use xlink:href="#shopping-bag"></use></svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+{% endblock %}
+{% block front %}
+    <section style="background-image: url({% static 'images/admin-ban.jpg' %}); background-repeat: no-repeat;background-size: cover; ">
+      <div class="container-lg">
+        <div class="row">
+          <div class="col-lg-7 pt-5 mt-5">
+            <h2 class="display-1 ls-1"><span class="fw-bold text-success">Manage</span> everything from one <span class="fw-bold">Place</span></h2>
+            <p class="fs-4">Online Orders made easy, fast and reliable.</p>
+            <div class="d-flex gap-3">
+              <a href="#" class="btn btn-success text-uppercase fs-6 rounded-pill px-4 py-3 mt-3 mb-3">Start Shopping</a>
+            </div>
+          </div>
+      </div>  
+    </section>      
+{% endblock %}
+{% block product %}
+<section class="pb-5">
+      <div class="container-lg">
+        <div class="row">
+          <div class="col-md-12">
+
+            <div class="section-header d-flex flex-wrap justify-content-between my-4">
+              
+              <h2 class="section-title">Best selling products</h2>
+
+              <div class="d-flex align-items-center">
+                <a href="#" class="btn btn-success rounded-1">View All</a>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-12">
+            <div class="product-grid row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5"> 
+              <div class="col">
+                <div class="product-item ">
+                  <figure>
+                    <a href="#" title="Product Title">
+                      <img src="{% static 'images/product-thumb-1.png'%}" alt="Product Thumbnail" class="tab-image">
+                    </a>
+                  </figure>
+                  <div class="d-flex flex-column text-center">
+                    <h3 class="fs-6 fw-normal">Whole Wheat Sandwich Bread</h3>
+                    <div>
+                      <span class="rating">
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>
+                      </span>
+                      <span>(222)</span>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center gap-2"><del>₹2,129.39</del>
+                      <span class="text-dark fw-semibold">₹1,597.04</span>
+                    </div>
+                    <div class="button-area p-3 pt-0">
+                      <div class="row g-1 mt-2">
+                        <div class="d-flex justify-content-between">
+                           <a href="#" class="btn btn-sm btn-primary">Edit</a>
+                           <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col">
+                <div class="product-item">
+                  <figure>
+                    <a href="index.html" title="Product Title">
+                      <img src="{% static 'images/Oats IMG.jpg'%}" alt="Product Thumbnail" class="tab-image" style="height: 210px; width: 180px;">
+                    </a>
+                  </figure>
+                  <div class="d-flex flex-column text-center">
+                    <h3 class="fs-6 fw-normal">Whole Grain Oatmeal</h3>
+                    <div>
+                      <span class="rating">
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>
+                      </span>
+                      <span>(41)</span>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center gap-2">
+                      <del>₹870.12</del>
+                      <span class="text-dark fw-semibold">₹810.20</span>
+                    </div>
+                    <div class="button-area p-3 pt-0">
+                      <div class="row g-1 mt-2">
+                        <div class="d-flex justify-content-between">
+                           <a href="#" class="btn btn-sm btn-primary">Edit</a>
+                           <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col">
+                <div class="product-item">
+                  <figure>
+                    <a href="index.html" title="Product Title">
+                      <img src="{% static 'images/product-thumb-3.png'%}" alt="Product Thumbnail" class="tab-image" style="height: 220px;">
+                    </a>
+                  </figure>
+                  <div class="d-flex flex-column text-center">
+                    <h3 class="fs-6 fw-normal">Sharp Cheddar Cheese Block</h3>
+                    <div>
+                      <span class="rating">
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>
+                      </span>
+                      <span>(32)</span>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center gap-2">
+                      <del>₹1,242.14</del>
+                      <span class="text-dark fw-semibold">₹1,064.69</span>
+                    </div>
+                    <div class="button-area p-3 pt-0">
+                        <div class="d-flex justify-content-between ">
+                           <a href="#" class="btn btn-sm btn-primary">Edit</a>
+                           <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col">
+                <div class="product-item">
+                  <figure>
+                    <a href="index.html" title="Product Title">
+                      <img src="{% static 'images/Chai_1.jpg'%}" alt="Product Thumbnail" class="tab-image"  style="height: 210px; width: 180px;">
+                    </a>
+                  </figure>
+                  <div class="d-flex flex-column text-center">
+                    <h3 class="fs-6 fw-normal">Organic Red Label Tea</h3>
+                    <div>
+                      <span class="rating">
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>
+                      </span>
+                      <span>(283)</span>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center gap-2">
+                      <del>₹629.00</del>
+                      <span class="text-dark fw-semibold">₹599.00</span>
+                    </div>
+                    <div class="button-area p-3 pt-0">
+                      <div class="row g-1 mt-2">
+                        <div class="d-flex justify-content-between ">
+                           <a href="#" class="btn btn-sm btn-primary">Edit</a>
+                           <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col">
+                <div class="product-item">
+                  <figure>
+                    <a href="Fruits_Vegetable/" title="Product Title">
+                      <img src="{% static 'images/product-thumb-5.png'%}" alt="Product Thumbnail" class="tab-image"   style="height: 190px; width: 180px;">
+                    </a>
+                  </figure>
+                  <div class="d-flex flex-column text-center">
+                    <h3 class="fs-6 fw-normal">Organic Spinach Leaves (Fresh Produce)</h3>
+                    <div>
+                      <span class="rating">
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>
+                      </span>
+                      <span>(186)</span>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center gap-2">
+                      <del>₹80.00</del>
+                      <span class="text-dark fw-semibold">₹40.00</span>
+                    </div>
+                    <div class="button-area p-3 pt-0">
+                      <div class="row g-1 mt-2">                        
+                        <div class="d-flex justify-content-between ">
+                           <a href="#" class="btn btn-sm btn-primary">Edit</a>
+                           <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col">
+                <div class="product-item">
+                  <figure>
+                    <a href="Fruits_Vegetable/" title="Product Title">
+                      <img src="{% static 'images/pumpkin.jpg'%}" alt="Product Thumbnail" class="tab-image"  style="height: 210px; width: 230px;">
+                    </a>
+                  </figure>
+                  <div class="d-flex flex-column text-center">
+                    <h3 class="fs-6 fw-normal">Fresh Pumpkin</h3>
+                    <div>
+                      <span class="rating">
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>
+                      </span>
+                      <span>(586)</span>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center gap-2">
+                      <del>₹100.00</del>
+                      <span class="text-dark fw-semibold">₹80.00</span>
+                    </div>
+                    <div class="button-area p-3 pt-0">
+                      <div class="row g-1 mt-2">
+                        <div class="d-flex justify-content-between ">
+                           <a href="#" class="btn btn-sm btn-primary">Edit</a>
+                           <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col">
+                <div class="product-item">
+                  <figure>
+                    <a href="index.html" title="Product Title">
+                      <img src="{% static 'images/product-thumb-7.png'%}" alt="Product Thumbnail" class="tab-image">
+                    </a>
+                  </figure>
+                  <div class="d-flex flex-column text-center">
+                    <h3 class="fs-6 fw-normal">Imported Italian Spaghetti Pasta</h3>
+                    <div>
+                      <span class="rating">
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>
+                      </span>
+                      <span>(222)</span>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center gap-2">
+                      <del>$24.00</del>
+                      <span class="text-dark fw-semibold">$18.00</span>
+                    </div>
+                    <div class="button-area p-3 pt-0">
+                      <div class="row g-1 mt-2">
+                        <div class="d-flex justify-content-between ">
+                           <a href="#" class="btn btn-sm btn-primary">Edit</a>
+                           <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                        </div>                     
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col">
+                <div class="product-item">
+                  <figure>
+                    <a href="Dairy_Eggs/" title="Product Title">
+                      <img src="{% static 'images/Milk_1.webp'%}" alt="Product Thumbnail" class="tab-image" style="height: 210px; width: 210px;">
+                    </a>
+                  </figure>
+                  <div class="d-flex flex-column text-center">
+                    <h3 class="fs-6 fw-normal">Granny Smith Apples</h3>
+                    <div>
+                      <span class="rating">
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>
+                      </span>
+                      <span>(222)</span>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center gap-2">
+                      <del>$24.00</del>
+                      <span class="text-dark fw-semibold">$18.00</span>
+                    </div>
+                    <div class="button-area p-3 pt-0">
+                      <div class="row g-1 mt-2">
+                        <div class="d-flex justify-content-between ">
+                           <a href="#" class="btn btn-sm btn-primary">Edit</a>
+                           <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col">
+                <div class="product-item">
+                  <figure>
+                    <a href="Dairy_Eggs/" title="Product Title">
+                      <img src="{% static 'images/product-thumb-9.png'%}" alt="Product Thumbnail" class="tab-image">
+                    </a>
+                  </figure>
+                  <div class="d-flex flex-column text-center">
+                    <h3 class="fs-6 fw-normal">Organic 2% Reduced Fat Milk </h3>
+                    <div>
+                      <span class="rating">
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>
+                      </span>
+                      <span>(222)</span>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center gap-2">
+                      <del>$24.00</del>
+                      <span class="text-dark fw-semibold">$18.00</span>
+                    </div>
+                    <div class="button-area p-3 pt-0">
+                      <div class="row g-1 mt-2">
+                        <div class="d-flex justify-content-between ">
+                           <a href="#" class="btn btn-sm btn-primary">Edit</a>
+                           <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col">
+                <div class="product-item">
+                  <figure>
+                    <a href="Dairy_Eggs/" title="Product Title">
+                      <img src="{% static 'images/product-thumb-10.png'%}" alt="Product Thumbnail" class="tab-image">
+                    </a>
+                  </figure>
+                  <div class="d-flex flex-column text-center">
+                    <h3 class="fs-6 fw-normal">Greek Style Plain Yogurt</h3>
+                    <div>
+                      <span class="rating">
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                        <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>
+                      </span>
+                      <span>(222)</span>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center gap-2">
+                      <del>$24.00</del>
+                      <span class="text-dark fw-semibold">$18.00</span>
+                    </div>
+                    <div class="button-area p-3 pt-0">
+                      <div class="row g-1 mt-2">
+                        <div class="d-flex justify-content-between ">
+                           <a href="#" class="btn btn-sm btn-primary">Edit</a>
+                           <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+{% endblock %}
+{% block blog %}
+{% endblock %}
+{% block login %}
+{% endblock %}

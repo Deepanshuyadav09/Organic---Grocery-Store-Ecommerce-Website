@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Success</title>
+</head>
+<body>
+  <h2>Proceed with Payment</h2>
+  <form action="/payment/" method="POST">
+    {% csrf_token %}
+    <script
+      src="https://checkout.razorpay.com/v1/checkout.js"
+      data-key="{{ key_id }}"
+      data-amount="{{ payment.amount }}"
+      data-currency="INR"
+      data-order_id="{{ payment.id }}"
+      data-buttontext="Proceed To Payment"
+      data-name="Organic - Grocery Store Website"
+      data-description="Test Transaction"
+      data-theme.color="#35bd1dff">
+    </script>
+    <input type="hidden" value="Hidden Element" name="hidden">
+  </form>
+</body>
+</html>

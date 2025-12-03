@@ -1,0 +1,246 @@
+{% extends 'index.html' %}
+{% load static %}
+          {% block menu %}
+          <div class="col-sm-4 col-lg-2 text-center text-sm-start d-flex gap-3 justify-content-center justify-content-md-start">
+            <div class="d-flex align-items-center my-3 my-sm-0">
+              <a href="index.html">
+                <img src="{% static 'images/logo.svg'%}" alt="logo" class="img-fluid">
+              </a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+              aria-controls="offcanvasNavbar"><b>MENU</b><use xlink:href="#menu"></use>
+            </button>
+          </div>
+          
+          <div class="col-sm-6 offset-sm-2 offset-md-0 col-lg-4">
+            <div class="search-bar row bg-light p-2 rounded-4">
+              <div class="col-md-4 d-none d-md-block">
+                <select class="form-select border-0 bg-transparent">
+                  <option>Groceries</option>
+                  <option>Drinks</option>
+                  <option>Chocolates</option>
+                </select>
+              </div>
+              <div class="col-11 col-md-7">
+                <form id="search-form" class="text-center" action="index.html" method="post">
+                  <input type="text" class="form-control border-0 bg-transparent" placeholder="Search for more than 2000 products">
+                </form>
+              </div>
+              <div class="col-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7Z"/></svg>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="col-lg-4">
+            <ul class="navbar-nav list-unstyled d-flex flex-row gap-3 gap-lg-5 justify-content-center flex-wrap align-items-center mb-0 fw-bold text-uppercase text-dark">
+              {% if request.session.Email  %}
+              <li class="nav-item active d-flex gap-3">
+                <a href="#home" class="nav-link"> Home</a>
+                <a href="#latest-blog" class="nav-link"> Blog</a>
+                <a href="#footer" class="nav-link"> About Us</a>
+                <a href="/logout1/" class="btn btn-outline-danger fw-bold text-uppercase fs-9 rounded-pill px-4 py-2">Logout</a>
+
+              </li>
+              
+              {% else %}
+                <li class="nav-item active d-flex gap-3 ">
+                <a href="#home" class="nav-link "> Home</a>
+                <a href="#latest-blog" class="nav-link"> Blog</a>
+                <a href="#footer" class="nav-link"> About Us</a>
+                <a href="/Login/" class="btn btn-outline-success fw-bold text-uppercase fs-9 rounded-pill px-4 py-2">Login</a>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+          
+          <div class="col-sm-8 col-lg-2 d-flex gap-5 align-items-center justify-content-center justify-content-sm-end">
+            <ul class="d-flex justify-content-end list-unstyled m-0">
+              <li>
+                <a href="#" class="p-2 mx-1">
+                  <svg width="24" height="24" style="color:black"><use xlink:href="#user"></use></svg>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="p-2 mx-1" >
+                  <svg width="24" height="24" style="color:black"><use xlink:href="#wishlist"></use></svg>
+                </a>
+              </li>
+              <li>
+                  <a href="/cart/" class="p-2 mx-1">
+                    <svg width="24" height="24" style="color:black"><use xlink:href="#shopping-bag"></use></svg>
+                    <span class="btn btn-success" style="padding:.10em.4em;font-size:13px;font-weight:700;border-radius:.25rem;">{{request.session.cart.keys|length}}</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+{% endblock %}
+{% block front %}
+{% endblock %}
+{% block category %}
+{% endblock %}
+{% block product %}
+{% endblock %}
+{% block featured %}
+{% endblock %}
+{% block popular %}
+{% endblock %}
+{% block blog %}
+{% endblock %}
+{% block login %}
+<html>
+<head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .main-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* 🌿 Image inside div */
+    .background-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(70%);
+    }
+
+    /* 🪴 Centered Form Card */
+    .register-card {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      padding: 40px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(6px);
+      transition: 0.3s ease;
+    }
+
+    .register-card:hover {
+      transform: translate(-50%, -52%);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      text-align: center;
+      color: #2e7d32;
+      font-weight: 600;
+      margin-bottom: 25px;
+    }
+
+    label {
+      font-weight: 500;
+      color: #2e7d32;
+    }
+
+    .form-control {
+      border-radius: 10px;
+      border: 1px solid #a5d6a7;
+      padding: 10px 15px;
+      transition: 0.3s ease;
+    }
+
+    .form-control:focus {
+      border-color: #43a047;
+      box-shadow: 0 0 0 0.2rem rgba(67, 160, 71, 0.25);
+    }
+
+    .btn-register {
+      background: linear-gradient(135deg, #4caf50, #2e7d32);
+      border: none;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 10px;
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      transition: 0.3s ease;
+    }
+
+    .btn-register:hover {
+      background: linear-gradient(135deg, #66bb6a, #1b5e20);
+      transform: scale(1.03);
+      box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+    }
+
+    .footer-text {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: #2e7d32;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <!-- 🌿 Organic Background Image -->
+    <img src="{% static 'images/green.JPG' %}"class="background-img" />
+
+    <!--  Registration Form -->
+    <div class="register-card">
+      <h2>Create Account</h2>
+      <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="username">Username</label>
+          <input type="text" name="Username" id="Username" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="email">Email</label>
+          <input type="email" name="Email" id="Email" class="form-control" required />
+        {% if msg_email %}
+        <small style="color: red;">{{ msg_email }}</small>
+        {% endif %}         
+        </div>
+
+        <div class="mb-3">
+          <label for="password">Password</label>
+          <input type="password" name="Password" id="Password" class="form-control" required />
+          {% if msg_pass %}
+          <small style="color: red;">{{ msg_pass }}</small>
+          {% endif %}        
+        </div>
+
+        <div class="mb-3">
+          <label for="confirm">Confirm Password</label>
+          <input type="password" name="Confirm" id="Confirm" class="form-control" required />
+       {% if msg_confirm %}
+       <small style="color: red;">{{ msg_confirm }}</small>
+       {% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-register">Register</button>
+
+        {% if msg %}
+        <p class="footer-text fw-bold ">{{ msg }}</p>
+        {% endif %}
+      </form>
+    </div>
+  </div>
+      <!-- Alertify JS  -->
+
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/alertify.min.js"></script>
+    <script>
+       alertify.set('notifier','position','top-right');
+       {% for msg in messages %}
+               alertify.success('{{ msg }}');
+       {% endfor %}
+    </script>
+</body>
+</html>
+{% endblock %}

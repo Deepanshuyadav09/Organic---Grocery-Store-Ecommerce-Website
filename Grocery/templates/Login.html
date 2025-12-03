@@ -1,0 +1,148 @@
+{% extends 'index.html' %}
+{% load static %}
+          {% block menu %}
+          <div class="col-sm-4 col-lg-2 text-center text-sm-start d-flex gap-3 justify-content-center justify-content-md-start">
+            <div class="d-flex align-items-center my-3 my-sm-0">
+              <a href="index.html">
+                <img src="{% static 'images/logo.svg'%}" alt="logo" class="img-fluid">
+              </a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+              aria-controls="offcanvasNavbar"><b>MENU</b><use xlink:href="#menu"></use>
+            </button>
+          </div>
+          
+          <div class="col-sm-6 offset-sm-2 offset-md-0 col-lg-4">
+            <div class="search-bar row bg-light p-2 rounded-4">
+              <div class="col-md-4 d-none d-md-block">
+                <select class="form-select border-0 bg-transparent">
+                  <option>Groceries</option>
+                  <option>Drinks</option>
+                  <option>Chocolates</option>
+                </select>
+              </div>
+              <div class="col-11 col-md-7">
+                <form id="search-form" class="text-center" action="index.html" method="post">
+                  <input type="text" class="form-control border-0 bg-transparent" placeholder="Search for more than 2000 products">
+                </form>
+              </div>
+              <div class="col-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7Z"/></svg>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="col-lg-4">
+            <ul class="navbar-nav list-unstyled d-flex flex-row gap-3 gap-lg-5 justify-content-center flex-wrap align-items-center mb-0 fw-bold text-uppercase text-dark">
+              {% if request.session.Email  %}
+              <li class="nav-item active d-flex gap-3">
+                <a href="#home" class="nav-link"> Home</a>
+                <a href="#latest-blog" class="nav-link"> Blog</a>
+                <a href="#footer" class="nav-link"> About Us</a>
+                <a href="/logout1/" class="btn btn-outline-danger fw-bold text-uppercase fs-9 rounded-pill px-4 py-2">Logout</a>
+
+              </li>
+              
+              {% else %}
+                <li class="nav-item active d-flex gap-3 ">
+                <a href="#home" class="nav-link "> Home</a>
+                <a href="#latest-blog" class="nav-link"> Blog</a>
+                <a href="#footer" class="nav-link"> About Us</a>
+                <a href="/Login/" class="btn btn-outline-success fw-bold text-uppercase fs-9 rounded-pill px-4 py-2">Login</a>
+                <a href="/Register/" class="btn btn-outline-success fw-bold text-uppercase fs-9 rounded-pill px-4 py-2">Register</a>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+          
+          <div class="col-sm-8 col-lg-2 d-flex gap-5 align-items-center justify-content-center justify-content-sm-end">
+            <ul class="d-flex justify-content-end list-unstyled m-0">
+              <li>
+                <a href="#" class="p-2 mx-1">
+                  <svg width="24" height="24" style="color:black"><use xlink:href="#user"></use></svg>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="p-2 mx-1" >
+                  <svg width="24" height="24" style="color:black"><use xlink:href="#wishlist"></use></svg>
+                </a>
+              </li>
+              <li>
+                  <a href="/cart/" class="p-2 mx-1">
+                    <svg width="24" height="24" style="color:black"><use xlink:href="#shopping-bag"></use></svg>
+                    <span class="btn btn-success" style="padding:.10em.4em;font-size:13px;font-weight:700;border-radius:.25rem;">{{request.session.cart.keys|length}}</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+{% endblock %}
+{% block front %}
+{% endblock %}
+{% block category %}
+{% endblock %}
+{% block product %}
+{% endblock %}
+{% block featured %}
+{% endblock %}
+{% block popular %}
+{% endblock %}
+{% block blog %}
+{% endblock %}
+{% block login %}
+<html>
+    <head>
+        <title>
+            Organic - Grocery Store Website Login
+        </title>
+    </head>
+    <body>
+        <h3 style="text-align: center; margin:30px; color: white"> Welcome To Login Page </h3>
+<!-- LOGIN START -->
+    <section>
+      <div class="container-lg">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-md-5 p-3">
+                <div class="section-header">
+                  <h2 class="section-title display-5 text-danger fw-bold">Get 25% Discount on your first purchase</h2>
+                </div>
+                <p>Just Sign Up & Register it now to become member.</p>
+              </div>
+              <div class="col-md-5 p-3">
+                <div style="font-size:60px; text-align: center; font-weight: bold; ">Login</div>
+                <div style="font-size:15px; text-align: center; padding-top: 10px; padding-bottom: 10px;">Please enter your e-mail and password:</div>
+                <form method="post">
+                {% csrf_token %}
+
+                  <div class="mb-3">
+                    <input type="email" class="form-control form-control-md rounded-0" name="Email" id="email" placeholder="E-Mail Address">
+                    {% if msg_email %}
+                    <small style="color: red;">{{ msg_email }}</small>
+                    {% endif %}
+                  </div>
+
+                  <div class="mb-3">
+                    <input type="password" class="form-control form-control-md rounded-0" name="Password" id="password" placeholder="Enter Password">
+                    {% if msg_pass %}
+                    <small style="color: red;">{{ msg_pass }}</small>
+                    {% endif %}
+                  </div>
+
+                  <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-success btn-md rounded-0">Submit</button>
+                  </div>
+                </form>
+                
+              </div>
+              
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+    </section>
+    </body>
+</html>
+{% endblock %}
